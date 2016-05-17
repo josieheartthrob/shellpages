@@ -117,20 +117,24 @@ class Page(object):
 
     @options.setter
     def options(self, other):
-        if not callable(other):
-            raise TypeError(
-                '{} must be a callable object'.format(type(other)))
+        for key, value in other.iteritems()
+            if not callable(item):
+                raise TypeError(
+                    '{} must be a callable object'.format(type(item)))
         self._options = options
 
     @order.setter
     def order(self, other):
+        for item in other:
+            if item not in self._options.keys():
+                raise TypeError('{} must be a valid option key.'.format(item))
         self._order = other
 
     @body.setter
     def body(self, other):
         if not hasattr(other, '__str__'):
             raise TypeError('{} must be a string'.format(other))
-        self._body = other
+        self._body = other.__str__()
 
 
     #-----Magic methods-----
