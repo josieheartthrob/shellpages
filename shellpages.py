@@ -2,7 +2,7 @@ import subprocess, time
 
 class ParseError(Exception):
     def __init__(self, message='Invalid input.'):
-    Exception.__init__(self, message)
+        Exception.__init__(self, message)
 
 class Menu(object):
     """A database of pages to display pages to the user.
